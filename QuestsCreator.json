@@ -1,0 +1,1766 @@
+{
+  "author": "",
+  "category": "General",
+  "description": "# QuestsCreator\nQuests Creator Extension for GDevelop 5\nCreate quests easily With Quests Creator, you can easily create quests for your game. For example collect 3 coins, or kill 3 zombies.\n## How to use\n* 1 - Start Quests Creator with the function `Init Quests Creator` \"At the begin of the scene\"\n* 2 - Create a quest with `(Collect) Create quest` add the parameters requested by the action.\n* 3 - Use the `Check if all objects are collected` action to keep the count of the object you want to collect up to date.\nYou will have to create your own UI and assign the fields that you want to be visible in your scene.\n\n### Fields available\n* `Title` typeof `String`\n* `Description` typeof `String`\n* `Status` (Active, Inactive, Completed, Failed) typeof `String`\n* `CanAbandon` typeof `Boolean` `True|False`\n\n### Expressions that return the current value\n** Tip: You will have to pass the quest ID parameter.\n* QuestsCreator::Title(Variable(QuestID)) Return `String`\n* QuestsCreator::Description(Variable(QuestID)) Return `String`\n* QuestsCreator::Status(Variable(QuestID)) Return `String`\n* QuestsCreator::CanAbandon(Variable(QuestID)) Return `Boolean`\n* QuestsCreator::ToCollect(Variable(QuestID)) Return `Number` returns the value of objects to collect.\n* QuestsCreator::Collected(Variable(QuestID)) Return `Number` Returns the total value of objects collected.\n* QuestsCreator::Collect(Variable(QuestID)) Return increments the +1 value of collected.\n\n### Actions\n* `Ìnit Quests Creator` Starts the Quests Creator engine and sets the scene variable `QuestsCreator`\n* `Save` - Save all data to the `QuestsCreator` scene variable\n* `LoadAll` - Load all data from the `Storage` into the `QuestsCreator` scene variable\n* `(Collect) Create a new quest` - Create a new quest.\n* `Find a quest by ID` - Find a quest by its ID, this action also creates a scene variable called `Quest` and saves the data of that quest in it. You can then access using Quest.ID or Quest[\"ID\"] to get the values.\n* `Check if all objects are collected` - Constantly checks if the amount of objects collected is equal to the objects that have to be collected. In case if you set the quest to `Completed`.\n* `Update quest title` - Updates the `Title` of the quest.\n* `Update quest title` - Updates the `Description` of the quest.\n* `Update quest title` - Updates the `Status` of the quest.\n* `Update quest can be abandoned` - Updates `CanAbandon` of the quest.\n* `(Collect) Add 1 collectable` - Add 1 to the objects to collect in the `Collected` variable\n\n### Conditions\n* `Quest exists` - Checks if a quest exists given its `ID`\n* `(Collect) Is quest completed?` - Checks if the `Status` of the quest is equal to `Completed`.\n",
+  "extensionNamespace": "",
+  "fullName": "Quests Creator",
+  "helpPath": "https://github.com/UlisesFreitas/QuestsCreator",
+  "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iSWNvbnMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMzIgMzIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyIDMyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojRkZGRkZGO30NCjwvc3R5bGU+DQo8cGF0aCBkPSJNMjcsM0gxMUM5LjMsMyw4LDQuOCw4LDd2MTRIN2MtMS43LDAtMywxLjgtMyw0czEuMyw0LDMsNGgxNmMxLjcsMCwzLTEuOCwzLTRWOGgzYzAuNiwwLDEtMC40LDEtMUMzMCw0LjgsMjguNywzLDI3LDN6DQoJIE0xMiwxMGg2YzAuNiwwLDEsMC40LDEsMXMtMC40LDEtMSwxaC02Yy0wLjYsMC0xLTAuNC0xLTFTMTEuNCwxMCwxMiwxMHogTTEyLDEzaDNjMC42LDAsMSwwLjQsMSwxcy0wLjQsMS0xLDFoLTNjLTAuNiwwLTEtMC40LTEtMQ0KCVMxMS40LDEzLDEyLDEzeiBNMjAuNCwyN0g3Yy0wLjQsMC0xLTAuOC0xLTJzMC42LTIsMS0yaDEzLjRjLTAuMywwLjYtMC40LDEuMy0wLjQsMlMyMC4yLDI2LjQsMjAuNCwyN3ogTTI2LjEsNg0KCWMwLjItMC42LDAuNi0xLDAuOS0xczAuNiwwLjQsMC45LDFIMjYuMXoiLz4NCjwvc3ZnPg0K",
+  "name": "QuestsCreator",
+  "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/Glyphster Pack/Master/SVG/Education and Learning/Education and Learning_education_scroll_graduation_script_degree.svg",
+  "shortDescription": "Create quests easily With Quests Creator, you can easily create quests for your game. For example collect 3 coins, or kill 3 zombies.",
+  "version": "1.0.0",
+  "tags": [
+    "Quest",
+    "Quests",
+    "Quest creator",
+    "Quests creator"
+  ],
+  "authorIds": [
+    "ZShmW1xkW7WWl9AkB78VITJMiTw1"
+  ],
+  "dependencies": [],
+  "eventsFunctions": [
+    {
+      "description": "",
+      "fullName": "",
+      "functionType": "Action",
+      "group": "",
+      "name": "onFirstSceneLoaded",
+      "private": false,
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "StorageQuests",
+                "=",
+                "\"StorageQuests\""
+              ]
+            }
+          ]
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Create Storage",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "GlobalVariableString(StorageQuests)",
+                    "GlobalVariableString(StorageQuests)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "EcrireFichierTxt"
+                  },
+                  "parameters": [
+                    "GlobalVariableString(StorageQuests)",
+                    "GlobalVariableString(StorageQuests)",
+                    "GlobalVariableString(StorageQuests)"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Save",
+      "fullName": "Save",
+      "functionType": "Action",
+      "group": "Save",
+      "name": "Save",
+      "private": false,
+      "sentence": "Save",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "EcrireFichierTxt"
+              },
+              "parameters": [
+                "GlobalVariableString(StorageQuests)",
+                "\"Quests\"",
+                "ToJSON(QuestsCreator)"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Init Quests Creator. (This action should be run one time probably \"At the begin of the scene\")",
+      "fullName": "Init Quests Creator (At the begin of the scene)",
+      "functionType": "Action",
+      "group": "Init",
+      "name": "Init",
+      "private": false,
+      "sentence": "Init Quests Creator",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "QuestsCreator",
+                "=",
+                "\"{}\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"]",
+                "=",
+                "\"{}\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "QuestsCreator[\"TotalQuests\"]",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "GroupExists"
+              },
+              "parameters": [
+                "GlobalVariableString(StorageQuests)",
+                "\"Quests\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "EcrireFichierTxt"
+              },
+              "parameters": [
+                "GlobalVariableString(StorageQuests)",
+                "\"Quests\"",
+                "ToJSON(QuestsCreator)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "GroupExists"
+              },
+              "parameters": [
+                "GlobalVariableString(StorageQuests)",
+                "\"Quests\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "LireFichierTxt"
+              },
+              "parameters": [
+                "GlobalVariableString(StorageQuests)",
+                "\"Quests\"",
+                "",
+                "QuestsCreator"
+              ]
+            },
+            {
+              "type": {
+                "value": "JSONToVariableStructure"
+              },
+              "parameters": [
+                "VariableString(QuestsCreator)",
+                "QuestsCreator"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "QuestsCreator[\"TotalQuests\"]",
+                    "=",
+                    "VariableChildCount(QuestsCreator[\"Quests\"])"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Load all from Quests Creator. (This action loads all from storage and assign the loaded data to QuestsCreator scene variable)",
+      "fullName": "Load all from Quests Creator",
+      "functionType": "Action",
+      "group": "Init",
+      "name": "LoadAll",
+      "private": false,
+      "sentence": "Load all from Quests Creator",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "QuestsCreator",
+                "=",
+                "\"{}\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"]",
+                "=",
+                "\"{}\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "QuestsCreator[\"TotalQuests\"]",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "GroupExists"
+              },
+              "parameters": [
+                "GlobalVariableString(StorageQuests)",
+                "\"Quests\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "LireFichierTxt"
+              },
+              "parameters": [
+                "GlobalVariableString(StorageQuests)",
+                "\"Quests\"",
+                "",
+                "QuestsCreator"
+              ]
+            },
+            {
+              "type": {
+                "value": "JSONToVariableStructure"
+              },
+              "parameters": [
+                "VariableString(QuestsCreator)",
+                "QuestsCreator"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "QuestsCreator[\"TotalQuests\"]",
+                    "=",
+                    "VariableChildCount(QuestsCreator[\"Quests\"])"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "(Collect) Create a new quest.",
+      "fullName": "(Collect) Create a new quest",
+      "functionType": "Action",
+      "group": "Quests (Type collect)",
+      "name": "CreateCollectQuest",
+      "private": false,
+      "sentence": "(Collect) Create a new quest, ID:_PARAM1_ title:_PARAM2_ description:_PARAM3_ objects to collect:_PARAM6_ status:_PARAM4_ can be abandoned:_PARAM5_",
+      "events": [
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Create Quest",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))]",
+                    "=",
+                    "\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "colorB": 228,
+                  "colorG": 176,
+                  "colorR": 74,
+                  "creationTime": 0,
+                  "name": "Create Variables",
+                  "source": "",
+                  "type": "BuiltinCommonInstructions::Group",
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"ID\"]",
+                            "=",
+                            "GetArgumentAsNumber(\"ID\")"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarSceneTxt"
+                          },
+                          "parameters": [
+                            "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Title\"]",
+                            "=",
+                            "GetArgumentAsString(\"Title\")"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarSceneTxt"
+                          },
+                          "parameters": [
+                            "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Description\"]",
+                            "=",
+                            "GetArgumentAsString(\"Description\")"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarSceneTxt"
+                          },
+                          "parameters": [
+                            "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Status\"]",
+                            "=",
+                            "GetArgumentAsString(\"Status\")"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"ToCollect\"]",
+                            "=",
+                            "GetArgumentAsNumber(\"ToCollect\")"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Collected\"]",
+                            "=",
+                            "0"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "GetArgumentAsBoolean"
+                          },
+                          "parameters": [
+                            "\"CanAbandon\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetSceneVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"CanAbandon\"]",
+                            "True"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "GetArgumentAsBoolean"
+                          },
+                          "parameters": [
+                            "\"CanAbandon\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetSceneVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"CanAbandon\"]",
+                            "="
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "QuestsCreator[\"TotalQuests\"]",
+                            "+",
+                            "1"
+                          ]
+                        }
+                      ],
+                      "events": [
+                        {
+                          "colorB": 228,
+                          "colorG": 176,
+                          "colorR": 74,
+                          "creationTime": 0,
+                          "name": "Save in Storage",
+                          "source": "",
+                          "type": "BuiltinCommonInstructions::Group",
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "BuiltinCommonInstructions::Once"
+                                  },
+                                  "parameters": []
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "QuestsCreator::Save"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "DebuggerTools::ConsoleLog"
+                                  },
+                                  "parameters": [
+                                    "\"Quest created\"",
+                                    "\"info\"",
+                                    "\"Created Quest\" + GetArgumentAsString(\"ID\")"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "parameters": []
+                        }
+                      ]
+                    }
+                  ],
+                  "parameters": []
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "Use a number to identify the quest, later with this id you can manage the quest.",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Title",
+          "longDescription": "Use it to add a good title to the quest. E.x. Collect 10 coins in the first level.",
+          "name": "Title",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Description",
+          "longDescription": "Add a quest description. E.x. Please go to the first level and collect some coins, then come back and talk to me.",
+          "name": "Description",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Status of the quest",
+          "longDescription": "This can be (Active, Inactive, Completed or Fail).",
+          "name": "Status",
+          "optional": false,
+          "supplementaryInformation": "[\"Active\",\"Inactive\",\"Completed\",\"Fail\"]",
+          "type": "stringWithSelector"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Can be abandoned",
+          "longDescription": "Use this to control if the player can abandon the quest.",
+          "name": "CanAbandon",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "yesorno"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quantity of the object to collect",
+          "longDescription": "",
+          "name": "ToCollect",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Find a quest by ID (This will create a variable named Quest, so it's easy for you to change data of the single quest). Usage Quest.ID or Quest[\"ID\"]",
+      "fullName": "Find a quest by ID",
+      "functionType": "Action",
+      "group": "Quests",
+      "name": "FindQuest",
+      "private": false,
+      "sentence": "Find a quest with ID:_PARAM1_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "GroupExists"
+              },
+              "parameters": [
+                "GlobalVariableString(StorageQuests)",
+                "\"Quests\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "LireFichierTxt"
+              },
+              "parameters": [
+                "GlobalVariableString(StorageQuests)",
+                "\"Quests\"",
+                "",
+                "QuestsCreator"
+              ]
+            },
+            {
+              "type": {
+                "value": "JSONToVariableStructure"
+              },
+              "parameters": [
+                "VariableString(QuestsCreator)",
+                "QuestsCreator[\"Quests\"]"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VariableChildExists"
+                  },
+                  "parameters": [
+                    "QuestsCreator[\"Quests\"]",
+                    "\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))"
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarSceneTxt"
+                      },
+                      "parameters": [
+                        "Quest[\"ID\"]",
+                        "=",
+                        "VariableString(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"ID\"])"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarSceneTxt"
+                      },
+                      "parameters": [
+                        "Quest[\"Title\"]",
+                        "=",
+                        "VariableString(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Title\"])"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarSceneTxt"
+                      },
+                      "parameters": [
+                        "Quest[\"Description\"]",
+                        "=",
+                        "VariableString(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Description\"])"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarSceneTxt"
+                      },
+                      "parameters": [
+                        "Quest[\"Status\"]",
+                        "=",
+                        "VariableString(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Status\"])"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "Quest[\"Collected\"]",
+                        "=",
+                        "Variable(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Collected\"])"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "Quest[\"ToCollect\"]",
+                        "=",
+                        "Variable(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"ToCollect\"])"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "SceneVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"CanAbandon\"]",
+                        "True"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetSceneVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "Quest[\"CanAbandon\"]",
+                        "True"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "SceneVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"CanAbandon\"]",
+                        "True"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetSceneVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "Quest[\"CanAbandon\"]",
+                        "False"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Check if all objects are collected",
+      "fullName": "Check if all objects are collected",
+      "functionType": "Action",
+      "group": "Quests",
+      "name": "CollectCompleted",
+      "private": false,
+      "sentence": "Check if all objects of quest:_PARAM1_ are collected",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "QuestsCreator::IsQuestCompleted"
+              },
+              "parameters": [
+                "",
+                "GetArgumentAsNumber(\"ID\")",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "QuestsCreator::Collect"
+              },
+              "parameters": [
+                "",
+                "GetArgumentAsNumber(\"ID\")",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "QuestsCreator::Save"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Collected\"]",
+                    "=",
+                    "Variable(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"ToCollect\"])"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "QuestsCreator::UpdateStatus"
+                  },
+                  "parameters": [
+                    "",
+                    "GetArgumentAsNumber(\"ID\")",
+                    "\"Completed\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "QuestsCreator::UpdateAbandon"
+                  },
+                  "parameters": [
+                    "",
+                    "GetArgumentAsNumber(\"ID\")",
+                    "\"Completed\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "QuestsCreator::Save"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Update quest title",
+      "fullName": "Update quest title",
+      "functionType": "Action",
+      "group": "Quest update",
+      "name": "UpdateTitle",
+      "private": false,
+      "sentence": "Update title of the quest ID:_PARAM1_ to:_PARAM2_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Title\"]",
+                "=",
+                "GetArgumentAsString(\"Title\")"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "QuestsCreator::Save"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest title",
+          "longDescription": "",
+          "name": "Title",
+          "optional": false,
+          "supplementaryInformation": "[\"Active\",\"Inactive\",\"Completed\",\"Fail\"]",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Update quest description",
+      "fullName": "Update quest description",
+      "functionType": "Action",
+      "group": "Quest update",
+      "name": "UpdateDescription",
+      "private": false,
+      "sentence": "Update description of the quest ID:_PARAM1_ to:_PARAM2_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Description\"]",
+                "=",
+                "GetArgumentAsString(\"Description\")"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "QuestsCreator::Save"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest description",
+          "longDescription": "",
+          "name": "Description",
+          "optional": false,
+          "supplementaryInformation": "[\"Active\",\"Inactive\",\"Completed\",\"Fail\"]",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Update quest status",
+      "fullName": "Update quest status",
+      "functionType": "Action",
+      "group": "Quest update",
+      "name": "UpdateStatus",
+      "private": false,
+      "sentence": "Update status of the quest ID:_PARAM1_ to:_PARAM2_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Status\"]",
+                "=",
+                "GetArgumentAsString(\"Status\")"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "QuestsCreator::Save"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest status",
+          "longDescription": "",
+          "name": "Status",
+          "optional": false,
+          "supplementaryInformation": "[\"Active\",\"Inactive\",\"Completed\",\"Fail\"]",
+          "type": "stringWithSelector"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Update quest can be abandoned",
+      "fullName": "Update quest can be abandoned",
+      "functionType": "Action",
+      "group": "Quest update",
+      "name": "UpdateAbandon",
+      "private": false,
+      "sentence": "Update can be abandoned of the quest ID:_PARAM1_ to:_PARAM2_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "GetArgumentAsBoolean"
+                  },
+                  "parameters": [
+                    "\"CanAbandon\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetSceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"CanAbandon\"]",
+                    "="
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GetArgumentAsBoolean"
+                  },
+                  "parameters": [
+                    "\"CanAbandon\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetSceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"CanAbandon\"]",
+                    "True"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "QuestsCreator::Save"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest can be abandoned",
+          "longDescription": "",
+          "name": "CanAbandon",
+          "optional": false,
+          "supplementaryInformation": "[\"Active\",\"Inactive\",\"Completed\",\"Fail\"]",
+          "type": "yesorno"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "(Collect) Add 1 collectable",
+      "fullName": "(Collect) Add 1 collectable",
+      "functionType": "Action",
+      "group": "Quests (Type collect)",
+      "name": "Collect",
+      "private": false,
+      "sentence": "(Collect) Add 1 collectable for the quest ID:_PARAM1_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Collected\"]",
+                "+",
+                "1"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Check if this quest exists",
+      "fullName": "Quest exists",
+      "functionType": "Condition",
+      "group": "Quest conditions",
+      "name": "QuestExists",
+      "private": false,
+      "sentence": "Quest ID:_PARAM1_ exists",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "VariableChildExists"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"]",
+                "\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "False"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VariableChildExists"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"]",
+                "\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "(Collect) Check if the quest Is completed",
+      "fullName": "(Collect) Is quest completed?",
+      "functionType": "Condition",
+      "group": "Quests (Type collect)",
+      "name": "IsQuestCompleted",
+      "private": false,
+      "sentence": "(Collect) Is quest ID:_PARAM1_ completed",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "False"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarSceneTxt"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"][\"Quest\" +ToString(GetArgumentAsNumber(\"ID\"))][\"Status\"]",
+                "=",
+                "\"Completed\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Return the title of the quest ID:_PARAM1_",
+      "fullName": "Return quest title",
+      "functionType": "StringExpression",
+      "group": "Quests expressions",
+      "name": "Title",
+      "private": false,
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnString"
+              },
+              "parameters": [
+                "VariableString(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Title\"])"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Return the description of the quest ID:_PARAM1_",
+      "fullName": "Return quest description",
+      "functionType": "StringExpression",
+      "group": "Quests expressions",
+      "name": "Description",
+      "private": false,
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnString"
+              },
+              "parameters": [
+                "VariableString(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Description\"])"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Return the status of the quest ID:_PARAM1_",
+      "fullName": "Return quest status",
+      "functionType": "StringExpression",
+      "group": "Quests expressions",
+      "name": "Status",
+      "private": false,
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnString"
+              },
+              "parameters": [
+                "VariableString(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Status\"])"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Return can be abandoned of the quest ID:_PARAM1_",
+      "fullName": "Return quest can be abandoned",
+      "functionType": "StringExpression",
+      "group": "Quests expressions",
+      "name": "CanAbandon",
+      "private": false,
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneVariableAsBoolean"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"CanAbandon\"]",
+                "False"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "False"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneVariableAsBoolean"
+              },
+              "parameters": [
+                "QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"CanAbandon\"]",
+                "True"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "(Collect) Return the quantity of the collected object (QuestID)",
+      "fullName": "(Collect) Return the quantity of the collected object",
+      "functionType": "Expression",
+      "group": "Quests (Type collect)",
+      "name": "Collected",
+      "private": false,
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnNumber"
+              },
+              "parameters": [
+                "Variable(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"Collected\"])"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "(Collect) Return the quantity of the object to collect (QuestID)",
+      "fullName": "(Collect) Return the quantity of the object to collect",
+      "functionType": "Expression",
+      "group": "Quests (Type collect)",
+      "name": "ToCollect",
+      "private": false,
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnNumber"
+              },
+              "parameters": [
+                "Variable(QuestsCreator[\"Quests\"][\"Quest\"+ToString(GetArgumentAsNumber(\"ID\"))][\"ToCollect\"])"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Quest ID",
+          "longDescription": "",
+          "name": "ID",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    }
+  ],
+  "eventsBasedBehaviors": [],
+  "eventsBasedObjects": []
+}
